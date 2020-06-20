@@ -1,0 +1,166 @@
+
+<html>
+<head>
+  <title>Admin Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="/style.css">
+
+
+  <style>
+ body{
+  background: #FFFFE6;
+}
+
+
+
+  </style>
+	
+	<script>
+	function facultyLogin(){
+	 var request = new XMLHttpRequest();
+	 var u = document.getElementById('Tusername').value;
+	 var p = document.getElementById('Tpassword').value;
+	 var params =  "u="+u+"&p="+p;
+	 request.onreadystatechange = function() {
+	     if (this.readyState == 4 && this.status == 200) {
+	     	
+	     	if(request.responseText == "Success"){
+	     		window.location = "/teacher/teacherHome";
+	     	}
+	     	else
+	        	document.getElementById("Terror").innerHTML = "incorrect details try again";
+	     }
+	 };
+	 request.open("POST", "/teacherLogin", true);
+	 request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	 request.send(params)
+	 }
+
+	 function adminLogin(){
+	 var request = new XMLHttpRequest();
+	 var u = document.getElementById('Ausername').value;
+	 var p = document.getElementById('Apassword').value;
+	 var params =  "u="+u+"&p="+p;
+	 request.onreadystatechange = function() {
+	     if (this.readyState == 4 && this.status == 200) {
+	     	
+	     	if(request.responseText == "Success"){
+	     		window.location = "/admin/adminHome";
+	     	}
+	     	else
+	        	document.getElementById("Aerror").innerHTML = "incorrect details";
+	     }
+	 };
+	 request.open("POST", "/adminLogin", true);
+	 request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	 request.send(params)
+	 }
+
+	 function guestLogin(){
+	 var request = new XMLHttpRequest();
+	 var u = document.getElementById('Gusername').value;
+	 var p = document.getElementById('Gpassword').value;
+	 var params =  "u="+u+"&p="+p;
+	 request.onreadystatechange = function() {
+	     if (this.readyState == 4 && this.status == 200) {
+	     	
+	     	if(request.responseText == "Success"){
+	     		window.location = "/guest/guestHome";
+	     	}
+	     	else
+	        	document.getElementById("Gerror").innerHTML = "incorrect details";
+	     }
+	 };
+	 request.open("POST", "/guestLogin", true);
+	 request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	 request.send(params)
+	 }
+
+	</script>
+  
+</head>
+
+<body>
+
+<div class="heading" style="margin-bottom:0; height:150px;" id='heading'>
+  <div style="float:left;padding:5% 0% 0% 5%"></div>
+<div style="float: left; padding: 5% 0% 0% 0%; margin:0;">
+  <h1> MAJOR PROJECT EVALUATION</h1>
+  <p>Welcome </p>
+</div>
+</div>
+
+<section class="container">			        
+ <div class="tabs">
+	 <span class="tab faculty active">
+    <a href="#faculty">faculty</a></span>
+	<span class="tab admin">
+    <a href="#admin">admin</a></span>
+  <span class="tab guest">
+    <a href="#guest">guest</a></span>
+ </div>
+	  <div class="content">
+		 <div class="faculty-cont cont">
+			 
+<input type="text" id="Tusername" class="inpt" required="required"  placeholder="Username">					<label for="email">Your email/username</label>	                    
+
+<input type="password" id="Tpassword" class="inpt" required="required" placeholder="Your password">
+           <label for="password">Your password</label>
+<p class="error" id="Terror" style="color : red"></p>
+	 <div class="submit-wrap">
+	 <input type="submit" value="Sign in" class="submit" onclick="facultyLogin()">
+	  <a href="#" class="more">Forgot your password?</a>
+			   </div>
+        	 
+    	  </div>
+    	  <div class="admin-cont cont">
+                
+<input type="text" class="inpt" required="required" name="username" placeholder="Username" id="Ausername">					<label for="email">Your email/username</label>	                    
+
+<input type="password" name="password" id="Apassword" class="inpt" required="required" placeholder="Your password">
+           <label for="password">Your password</label>
+<p class="error" id="Aerror" style="color : red"></p>
+	 <div class="submit-wrap">
+	 <input type="submit" value="Sign in" class="submit" onclick="adminLogin()">
+	  <a href="#" class="more">Forgot your password?</a>
+			   </div>
+        	  
+            </div>
+        <div class="guest-cont cont">
+                
+<input type="text" name="username" id="Gusername" class="inpt" required="required" value="" placeholder="username or email">                    
+
+<input type="password" name="password" id="Gpassword" class="inpt" required="required" placeholder="Your password">
+<p class="error" id="Gerror" style="color : red"></p>        
+	 <div class="submit-wrap">
+	 <input type="submit" value="Sign in" class="submit" onclick="guestLogin()">
+	  <a href="#" class="more">Forgot your password?</a>
+			   </div>
+        	  
+            </div>
+	 </div>
+		  
+		    
+	</section>
+
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script  src="/function.js"></script>
+
+</body>
+</html>

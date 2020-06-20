@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item active" id="navHome" onclick="navHome()">
+        <a class="nav-link" href="#">Home</a>
+      </li>
+      <li class="nav-item" id="navDisplayMarks" onclick="navDisplayMarks()">
+        <a class="nav-link" href="#">Display Marks</a>
+      </li>
+      <li class="nav-item" id="navAddGuest" onclick="navAddGuest()">
+        <a class="nav-link" href="#">Add Guest</a>
+      </li>    
+    </ul>
+  </div>  
+</nav>
+<script>
+	var protocol = window.location.protocol;
+	var host = window.location.host;
+	function navHome(){
+		var url = protocol+"//"+host+"/admin/adminHome";
+		window.location = url;
+	}
+	function navDisplayMarks(){
+		var url = protocol+"//"+host+"/admin/displayMarks";
+		window.location = url;
+	}
+	function navAddGuest(){
+		var url = protocol+"//"+host+"/admin/addGuest";
+		window.location = url;
+	}
+</script>
